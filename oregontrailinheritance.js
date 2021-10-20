@@ -1,10 +1,54 @@
 class Traveler{
     constructor(name){
-        this.name = name;
-        this.food = 1;
-        this.isHealthy = true;
-        this.huntValue = 2;
-        this.hungry = 1;
+        this._name = name;
+        this._food = 1;
+        this._isHealthy = true;
+        this._huntValue = 2;
+        this._hungry = 1;
+
+        Object.defineProperties(this, {
+            name:{
+                set: function(value){
+                    return this._name = value;
+                },
+                get: function(){
+                    return this._name;
+                }
+            },
+            food:{
+                set: function(value){
+                    return this._food = value;
+                },
+                get: function(){
+                    return this._food;
+                }
+            },
+            isHealthy:{
+                set: function(value){
+                    return this._isHealthy = value;
+                },
+                get: function(){
+                    return this._isHealthy;
+                }
+
+            },
+            huntValue:{
+                set: function(value){
+                    return this._huntValue = value;
+                },
+                get: function(){
+                    return this._huntValue;
+                }
+            },
+            hungry:{
+                set: function(value){
+                    return this._hungry = value;
+                },
+                get: function(){
+                    return this._hungry;
+                }
+            }
+        })
     }
 
     hunt(){
