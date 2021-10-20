@@ -134,10 +134,10 @@ class Wagon{
 
     totalFood(){
         const foodCount = (accumulated, obj) => {
-            console.log(obj.food)
+
             return accumulated += obj.food
         }
-        console.log(this.passageiros)
+
         let food = this.passageiros.reduce(foodCount, 0)
 
         return food
