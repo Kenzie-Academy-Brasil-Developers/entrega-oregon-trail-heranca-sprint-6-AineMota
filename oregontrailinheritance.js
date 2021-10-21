@@ -3,65 +3,39 @@ class Traveler{
         this._name = name;
         this._food = 1;
         this._isHealthy = true;
-        this._huntValue = 2;
-        this._hungry = 1;
 
-        Object.defineProperties(this, {
-            name:{
-                set: function(value){
-                    return this._name = value;
-                },
-                get: function(){
-                    return this._name;
-                }
-            },
-            food:{
-                set: function(value){
-                    return this._food = value;
-                },
-                get: function(){
-                    return this._food;
-                }
-            },
-            isHealthy:{
-                set: function(value){
-                    return this._isHealthy = value;
-                },
-                get: function(){
-                    return this._isHealthy;
-                }
 
-            },
-            huntValue:{
-                set: function(value){
-                    return this._huntValue = value;
-                },
-                get: function(){
-                    return this._huntValue;
-                }
-            },
-            hungry:{
-                set: function(value){
-                    return this._hungry = value;
-                },
-                get: function(){
-                    return this._hungry;
-                }
-            }
-        })
     }
+        set name (value){
+            this._name = value;
+        }
+        get name() {
+            return this._name
+        }
+
+
+        set food (value){
+            this._food = value;
+        }
+        get food () {
+            return this._food
+        }
+
+
+        set isHealthy (value){
+            this._isHealthy = value;
+        }
+        get isHealthy () {
+            return this._isHealthy
+        }
 
     hunt(){
-        this.food += this.huntValue;
+        this.food += 2;
     }
 
     eat(){
         if(this.food > 0){
-            this.food -= this.hungry;
-            if(this.food < 0){
-                this.isHealthy = false
-                this.food = 0;
-            }
+            this.food -= 1;
         }else{
             this.isHealthy = false;
         }
@@ -92,13 +66,27 @@ class Hunter extends Traveler{
             traveler.food += numOfFoodUnits;
         }
     }
+
+    hunt(){
+        this.food += 5;
+    }
+
+    eat(){
+        this.food -= 2;
+
+        if(this.food <= 0){
+
+            this.isHealthy = false
+            this.food = 0;
+
+        }
+    }
 }
 
 class Wagon{
     constructor(capacity){
         this.capacity = capacity;
         this.passageiros = [];
-        this.getAvailableSeatCount();
     }
 
     getAvailableSeatCount(){
